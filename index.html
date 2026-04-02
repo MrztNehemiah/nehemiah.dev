@@ -25,54 +25,30 @@
     <!-- Header -->
     <header class="px-4 sm:px-8 py-4 sm:py-6 flex items-center justify-between">
         <button
-            id="themeToggle"
-            class="w-10 h-10 rounded-lg flex items-center justify-center bg-white dark:bg-zinc-900 text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-zinc-800"
-        >
-            <span class="dark:hidden">🌙</span>
-            <span class="hidden dark:inline">☀️</span>
+        id="themeToggle"
+        class="w-10 h-10 rounded-lg flex items-center justify-center bg-white dark:bg-zinc-900 text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-zinc-800">
+        <!-- Sun: visible in dark mode -->
+        <svg class="hidden dark:block w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z"/>
+        </svg>
+        <!-- Moon: visible in light mode -->
+        <svg class="block dark:hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
         </button>
 
-        <!-- Desktop Navigation -->
-    <nav class="hidden md:flex gap-2 lg:gap-4">
-        <a href="#me" class="px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-            ME
-        </a>
-        <a href="#career" class="px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-            CAREER
-        </a>
-        <a href="#portfolio" class="px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-            PORTFOLIO
-        </a>
-        <a href="https://drive.google.com/file/d/1VLrNNrPIF-SvX1wxUpqo5vlbmUT0f-2B/view" target="_blank" rel="noopener noreferrer" class="px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-            RESUME
+    <nav class="flex items-center gap-1">
+        <a href="https://drive.google.com/file/d/140nqdfoinObr9r4XvtWUHunsaR5RyKQS/view?usp=drivesdk" 
+        target="_blank" rel="noopener noreferrer" 
+        class="flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-dashed border-gray-300 dark:border-zinc-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-gray-500 dark:hover:border-zinc-400 hover:text-gray-900 dark:hover:text-white transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        </svg>
+        RESUME
         </a>
     </nav>
+    </header>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobileMenuToggle" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700 dark:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </header>
-
-        <!-- Mobile Navigation -->
-        <nav id="mobileMenu" class="hidden md:hidden px-4 pb-4">
-            <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 space-y-2">
-                <a href="#me" class="w-full block text-left px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors">
-                    ME
-                </a>
-                <a href="#career" class="w-full block text-left px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors">
-                    CAREER
-                </a>
-                <a href="#portfolio" class="w-full block text-left px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors">
-                    PORTFOLIO
-                </a>
-                <a href="https://drive.google.com/file/d/1Gi1hdTNWIGfzcDX3L3DYzh03pw6TLKIm/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="w-full block text-left px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors">
-                    RESUME
-                </a>
-            </div>
-        </nav>
 
     <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
@@ -99,9 +75,7 @@
                         <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" id="age">
-                    21y 0m 11d 10h 59m 22s old
-                </p>
+                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400" id="age"></p>
             </div>
         </div>
 
@@ -567,7 +541,7 @@
         <!-- Personality Section -->
         <div id="me" class="mt-16 sm:mt-20 mb-12 sm:mb-16 border-2 border-dashed border-gray-300 dark:border-zinc-700 rounded-xl p-6 sm:p-8">
             <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                personality.
+                Personality.
             </h2>
             
             <div class="grid md:grid-cols-2 gap-6">
@@ -591,7 +565,7 @@
                         <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                         </svg>
-                        <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Take feedbacks seriosly</span>
+                        <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Take feedbacks seriously</span>
                     </div>
                     
                     <div class="flex items-start gap-3">
@@ -605,7 +579,7 @@
                         <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                         </svg>
-                        <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300">I believe in God and in the person of Jesus Christ</span>
+                        <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Detail-oriented</span>
                     </div>
                 </div>
                 
@@ -670,7 +644,7 @@
     </main>
 
     <footer class="text-center py-6 bg-white dark:bg-black text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-zinc-800">
-        <p>© <span id="copyrightYear">2026</span> Nehemiah.</p>
+        <p>© Nehemiah.</p>
     </footer>
 
     <script>
@@ -684,13 +658,6 @@
             sessionStorage.setItem('theme', theme);
         });
 
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
 
         // Tech Stack toggle functionality
         const toggleBtn = document.getElementById('toggleTechStack');
