@@ -1,0 +1,143 @@
+---
+const projects = [
+  {
+    title: "Zero-Downtime Multi-Region Deployment Pipeline",
+    description: "Designed and built a fully automated blue-green deployment pipeline across two AWS regions using GitHub Actions, ArgoCD, and Terraform. Reduced mean deploy time from 45 minutes to under 6 minutes.",
+    impact: "↓ 87% deploy time",
+    stack: ["GitHub Actions", "ArgoCD", "Terraform", "EKS", "AWS Route53"],
+    github: "https://github.com",
+    demo: null,
+  },
+  {
+    title: "Platform Observability Stack",
+    description: "Built a self-hosted observability platform on Kubernetes using Prometheus, Grafana, Loki, and OpenTelemetry. Centralized metrics, logs, and traces for 12 microservices with automated alerting via PagerDuty.",
+    impact: "↓ 60% MTTR",
+    stack: ["Prometheus", "Grafana", "Loki", "OpenTelemetry", "Kubernetes"],
+    github: "https://github.com",
+    demo: null,
+  },
+  {
+    title: "Internal Developer Platform (IDP)",
+    description: "Designed a Backstage-based IDP that gave developers self-service access to infrastructure provisioning, service catalog, and runbooks. Reduced platform team toil by automating 80% of repetitive requests.",
+    impact: "↓ 80% toil",
+    stack: ["Backstage", "Terraform", "AWS", "PostgreSQL", "Python"],
+    github: "https://github.com",
+    demo: "https://example.com",
+  },
+  {
+    title: "GitOps Infrastructure at Scale",
+    description: "Migrated 40+ services from manual kubectl deploys to a fully GitOps-driven workflow using ArgoCD and Kustomize. Every production change is now version-controlled, reviewed, and auditable.",
+    impact: "40+ services migrated",
+    stack: ["ArgoCD", "Kustomize", "Helm", "GitHub", "EKS"],
+    github: "https://github.com",
+    demo: null,
+  },
+];
+---
+<section id="projects">
+  <div class="container">
+    <p class="section-label">projects</p>
+    <h2>Things I've built</h2>
+    <p class="projects-sub">A selection of infrastructure, automation, and platform projects — with real numbers where I can share them.</p>
+    <div class="projects-grid">
+      {projects.map(p => (
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">{p.title}</h3>
+            <span class="impact-badge">{p.impact}</span>
+          </div>
+          <p class="project-desc">{p.description}</p>
+          <div class="project-footer">
+            <div class="stack-chips">
+              {p.stack.map(s => <span class="chip">{s}</span>)}
+            </div>
+            <div class="project-links">
+              {p.github && (
+                <a href={p.github} target="_blank" rel="noopener" class="project-link">
+                  GitHub →
+                </a>
+              )}
+              {p.demo && (
+                <a href={p.demo} target="_blank" rel="noopener" class="project-link">
+                  Live →
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 { margin-bottom: 0.6rem; }
+  .projects-sub {
+    color: var(--text-secondary);
+    font-size: 0.975rem;
+    margin-bottom: 2.5rem;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .project-card:hover {
+    border-color: var(--purple-400);
+    transform: translateY(-2px);
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .project-title {
+    font-size: 0.975rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .impact-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: var(--accent-light);
+    color: var(--purple-800);
+    border: 1px solid var(--purple-100);
+    flex-shrink: 0;
+  }
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .project-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .stack-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .project-links { display: flex; gap: 1rem; }
+  .project-link {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    transition: opacity 0.15s;
+  }
+  .project-link:hover { opacity: 0.7; }
+</style>
