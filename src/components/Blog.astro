@@ -1,0 +1,110 @@
+---
+const posts = [
+  {
+    title: "Why Your Kubernetes Readiness Probes Are Lying to You",
+    date: "Coming soon",
+    summary: "A deep dive into the subtle misconfiguration that silently routes traffic to pods that aren't ready — and how to fix it properly.",
+    tags: ["Kubernetes", "SRE"],
+  },
+  {
+    title: "GitOps Is Not a Deployment Strategy — It's a Discipline",
+    date: "Coming soon",
+    summary: "The difference between teams that adopt ArgoCD as a tool and teams that actually practice GitOps. Spoiler: it's mostly cultural.",
+    tags: ["GitOps", "Platform Engineering"],
+  },
+  {
+    title: "The Runbook Is a Love Letter to Your 3am Self",
+    date: "Coming soon",
+    summary: "How I learned to write runbooks that actually help during incidents, not just check a compliance box.",
+    tags: ["SRE", "Incident Response"],
+  },
+];
+---
+<section id="blog">
+  <div class="container">
+    <p class="section-label">writing</p>
+    <div class="blog-header">
+      <div>
+        <h2>Things I think about</h2>
+        <p class="blog-sub">Occasional writing on platform engineering, SRE practices, and the messy human side of keeping systems running.</p>
+      </div>
+      <span class="coming-soon-badge mono">posts coming soon</span>
+    </div>
+    <div class="posts-list">
+      {posts.map(post => (
+        <article class="post-row">
+          <div class="post-main">
+            <div class="post-tags">
+              {post.tags.map(tag => <span class="chip">{tag}</span>)}
+            </div>
+            <h3 class="post-title">{post.title}</h3>
+            <p class="post-summary">{post.summary}</p>
+          </div>
+          <span class="post-date mono">{post.date}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .blog-sub {
+    font-size: 0.975rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    max-width: 480px;
+  }
+  .coming-soon-badge {
+    font-size: 0.72rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    white-space: nowrap;
+    align-self: center;
+  }
+  .posts-list { display: flex; flex-direction: column; }
+  .post-row {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    gap: 1rem 2rem;
+    align-items: start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0.65;
+    transition: opacity 0.15s;
+  }
+  .post-row:first-child { border-top: 1px solid var(--border); }
+  .post-row:hover { opacity: 1; }
+  .post-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .post-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+  .post-summary {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .post-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: right;
+    padding-top: 4px;
+  }
+  @media (max-width: 560px) {
+    .post-row { grid-template-columns: 1fr; }
+    .post-date { display: none; }
+  }
+</style>
