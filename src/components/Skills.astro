@@ -1,0 +1,95 @@
+---
+const groups = [
+  {
+    label: "Cloud & Infrastructure",
+    tools: ["AWS (EC2, EKS, RDS, S3, Lambda, VPC)", "Terraform", "AWS CDK", "Ansible"],
+  },
+  {
+    label: "Containers & Orchestration",
+    tools: ["Kubernetes", "Docker", "Helm", "ArgoCD", "Kustomize"],
+  },
+  {
+    label: "CI/CD & Automation",
+    tools: ["GitHub Actions", "Jenkins", "Bash", "Python", "Go"],
+  },
+  {
+    label: "Observability",
+    tools: ["Prometheus", "Grafana", "Loki", "Tempo", "OpenTelemetry"],
+  },
+  {
+    label: "Security & Networking",
+    tools: ["AWS IAM", "Vault (HashiCorp)", "NGINX", "Cloudflare", "AWS WAF"],
+  },
+  {
+    label: "Databases & Storage",
+    tools: ["PostgreSQL", "Redis", "DynamoDB", "AWS RDS", "S3 / Glacier"],
+  },
+];
+---
+<section id="skills">
+  <div class="container">
+    <p class="section-label">skills & tools</p>
+    <h2>The stack I work with</h2>
+    <p class="skills-sub">Tools I reach for daily — and a few I've used enough to know when <em>not</em> to reach for them.</p>
+    <div class="skills-grid">
+      {groups.map(group => (
+        <div class="skill-group">
+          <h3 class="group-label">{group.label}</h3>
+          <ul class="tool-list">
+            {group.tools.map(tool => (
+              <li class="tool-item">
+                <span class="tool-dot"></span>
+                {tool}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 { margin-bottom: 0.6rem; }
+  .skills-sub {
+    color: var(--text-secondary);
+    font-size: 0.975rem;
+    margin-bottom: 2.5rem;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-group {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+  }
+  .group-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+    font-size: 0.72rem;
+  }
+  .tool-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+  .tool-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-mid);
+    flex-shrink: 0;
+  }
+</style>
