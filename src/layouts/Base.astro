@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 const {
-  title = "Nehemiah — DevOps Engineer",
+  title = "Nehemiah",
   description = "I design and operate the infrastructure that lets software teams ship faster and sleep better."
 } = Astro.props;
 ---
@@ -18,7 +18,6 @@ const {
   <meta name="description" content={description} />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/global.css" />
 </head>
 <body>
 
@@ -26,7 +25,7 @@ const {
     <div class="nav-inner">
       <ul class="nav-links">
         <li><a href="#about">about</a></li>
-        <li><a href="#skills">skills</a></li>
+        <li class="hide-mobile"><a href="#skills">skills</a></li>
         <li><a href="#projects">projects</a></li>
         <li><a href="#experience">experience</a></li>
         <li><a href="#blog">writing</a></li>
@@ -39,14 +38,90 @@ const {
 
   <footer>
     <div class="footer-inner">
-      <span>© {new Date().getFullYear()} Nehemiah.</span>
+      <span>© {new Date().getFullYear()} Nehemiah. Built with Astro.</span>
       <div style="display:flex;gap:1.2rem;">
-        <a href="https://github.com/nehemiah-dev" target="_blank" rel="noopener" style="color:var(--text-muted);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">GitHub</a>
-        <a href="https://www.linkedin.com/in/nehemiah-daniel-844177231/" target="_blank" rel="noopener" style="color:var(--text-muted);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">LinkedIn</a>
-        <a href="mailto:hello@nehemiah.dev" style="color:var(--text-muted);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Email</a>
+        <a href="https://github.com/nehemiah-dev" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+        <a href="www.linkedin.com/in/nehemiah-daniel-844177231" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="mailto:hello@nehemiah.dev" class="footer-link">Email</a>
       </div>
     </div>
   </footer>
 
 </body>
 </html>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    flex-shrink: 0;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+  .footer-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-link {
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+  .footer-link:hover { color: var(--accent); }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .nav-links { gap: 1.1rem; }
+    .nav-links a { font-size: 0.78rem; }
+    .hide-mobile { display: none; }
+  }
+</style>
