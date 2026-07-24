@@ -1,9 +1,8 @@
 ---
 ---
-<section id="hero" style="padding-top: calc(var(--section-gap) + 56px); padding-bottom: var(--section-gap);">
+<section id="hero">
   <div class="container">
 
-    <!-- CLI terminal block -->
     <div class="terminal" aria-label="Terminal introduction">
       <div class="terminal-bar">
         <span class="dot red"></span>
@@ -14,44 +13,40 @@
       <div class="terminal-body">
         <p class="t-line"><span class="t-prompt">$</span> <span class="t-cmd" id="cmd1"></span></p>
         <div id="output1" class="t-output" style="display:none;">
-          <p><span class="t-key">name</span>       <span class="t-val">Nehemiah</span></p>
-          <p><span class="t-key">role</span>       <span class="t-val">DevOps · SRE · Platform Engineer</span></p>
-          <p><span class="t-key">cloud</span>      <span class="t-val">AWS</span></p>
-          <p><span class="t-key">mission</span>    <span class="t-val">Ship fast. Stay up. Sleep soundly.</span></p>
+          <p><span class="t-key">name</span>    <span class="t-val">Nehemiah</span></p>
+          <p><span class="t-key">role</span>    <span class="t-val">DevOps Engineer</span></p>
         </div>
         <p class="t-line" id="line2" style="display:none;"><span class="t-prompt">$</span> <span class="t-cmd" id="cmd2"></span></p>
+        <div id="output2" class="t-output" style="display:none;">
+          <p class="t-val">Build · Automate · Improve</p>
+          
+        </div>
+        <p id="cursor-line" class="t-line" style="display:none;"><span class="t-prompt">$</span> <span class="t-cursor">▋</span></p>
+        <p class="t-line" id="line3" style="display:none;"><span class="t-prompt">$</span> <span class="t-cmd" id="cmd3"></span></p>
         <p id="cursor-line" class="t-line" style="display:none;"><span class="t-prompt">$</span> <span class="t-cursor">▋</span></p>
       </div>
     </div>
 
-    <!-- Headline -->
-    <div class="hero-text">
-      <h1>
-        I keep systems <span class="accent">alive</span><br>
-        pipelines <span class="accent">honest</span><br>
-        and teams <span class="accent">unblocked</span>
-      </h1>
-      <p class="hero-sub">
-        I design, automate, and operate cloud infrastructure — so engineering teams spend their time building products.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View my work</a>
-        <a href="#contact" class="btn btn-outline">Get in touch</a>
-      </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View my work</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
     </div>
 
   </div>
 </section>
 
 <style>
-  /* Terminal */
+  #hero {
+    padding-top: calc(56px + 1.5rem);
+    padding-bottom: calc(var(--section-gap) * 0.4);
+  }
+
   .terminal {
     background: var(--gray-900);
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: 3.5rem;
     border: 1px solid var(--gray-800);
-    max-width: 560px;
+    max-width: 520px;
   }
   .terminal-bar {
     background: var(--gray-800);
@@ -71,17 +66,25 @@
     margin-left: 8px;
   }
   .terminal-body {
-    padding: 1.2rem 1.4rem 1.4rem;
+    padding: 1rem 1.2rem 1.2rem;
     font-family: var(--font-mono);
-    font-size: 0.82rem;
-    line-height: 1.9;
+    font-size: 0.8rem;
+    line-height: 1.7;
     color: #cdd6f4;
+    min-height: 168px;
   }
   .t-line { display: flex; align-items: baseline; gap: 8px; }
   .t-prompt { color: var(--purple-400); font-weight: 500; }
   .t-cmd { color: #a6e3a1; }
-  .t-output { padding: 0.3rem 0 0.5rem 1rem; }
-  .t-key { color: var(--purple-400); min-width: 100px; display: inline-block; }
+  .t-output { padding: 0.15rem 0 0.3rem 1rem; }
+  .t-output p {
+    margin: 0;
+  }
+  .t-key {
+    color: var(--purple-400);
+    min-width: 80px;
+    display: inline-block;
+  }
   .t-val { color: #cdd6f4; }
   .t-cursor {
     color: var(--purple-400);
@@ -89,16 +92,12 @@
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-  /* Hero text */
-  .hero-text { max-width: 600px; }
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    margin: 1.2rem 0 2rem;
-    max-width: 520px;
-    line-height: 1.75;
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
   }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 </style>
 
 <script>
@@ -110,23 +109,53 @@
     }, speed);
   }
 
-  const cmd1 = document.getElementById('cmd1');
-  const out1  = document.getElementById('output1');
-  const line2 = document.getElementById('line2');
-  const cmd2  = document.getElementById('cmd2');
+  const cmd1       = document.getElementById('cmd1');
+  const out1       = document.getElementById('output1');
+  const line2      = document.getElementById('line2');
+  const cmd2       = document.getElementById('cmd2');
+  const out2       = document.getElementById('output2');
+  const line3      = document.getElementById('line3');
+  const cmd3       = document.getElementById('cmd3');
   const cursorLine = document.getElementById('cursor-line');
 
-  typeText(cmd1, 'whoami --verbose', 55, () => {
-    setTimeout(() => {
-      out1.style.display = 'block';
+  function resetTerminal() {
+    cmd1.textContent = '';
+    cmd2.textContent = '';
+    cmd3.textContent = '';
+    out1.style.display = 'none';
+    line2.style.display = 'none';
+    out2.style.display = 'none';
+    line3.style.display = 'none';
+    cursorLine.style.display = 'none';
+  }
+
+  function runSequence() {
+    typeText(cmd1, 'whoami --verbose', 55, () => {
       setTimeout(() => {
-        line2.style.display = 'flex';
-        typeText(cmd2, 'ls ./expertise', 55, () => {
-          setTimeout(() => {
-            cursorLine.style.display = 'flex';
-          }, 400);
-        });
-      }, 600);
-    }, 300);
-  });
+        out1.style.display = 'block';
+        setTimeout(() => {
+          line2.style.display = 'flex';
+          typeText(cmd2, 'cat mission.txt', 55, () => {
+            setTimeout(() => {
+              out2.style.display = 'block';
+              setTimeout(() => {
+                line3.style.display = 'flex';
+                typeText(cmd3, 'clear', 55, () => {
+                  setTimeout(() => {
+                    // pause so the "clear" command is visible before wiping
+                    setTimeout(() => {
+                      resetTerminal();
+                      setTimeout(runSequence, 500); // brief pause on blank screen, then loop
+                    }, 700);
+                  }, 200);
+                });
+              }, 300);
+            }, 200);
+          });
+        }, 500);
+      }, 300);
+    });
+  }
+
+  runSequence();
 </script>
