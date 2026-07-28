@@ -1,36 +1,36 @@
 ---
 const groups = [
   {
-    label: "Cloud & Infrastructure",
-    tools: ["AWS (EC2, EKS, RDS, S3, Lambda, VPC)", "Terraform", "AWS CDK", "Ansible"],
+    label: "Programming & Development",
+    tools: ["Go", "Python", "Bash", "FastAPI", "Gin", "REST APIs"],
   },
   {
     label: "Containers & Orchestration",
-    tools: ["Kubernetes", "Docker", "Helm", "ArgoCD"],
+    tools: ["Kubernetes", "Docker", "Helm",],
   },
   {
-    label: "CI/CD & Automation",
-    tools: ["GitHub Actions", "Bash", "Python", "Go"],
+    label: "Cloud & Infrastructure",
+    tools: ["AWS (EC2, EKS, RDS, S3, Lambda, VPC)", "Terraform", "Ansible"],
   },
   {
-    label: "Observability",
+    label: "Observability & SRE",
     tools: ["Prometheus", "Grafana", "Loki", "Tempo", "OpenTelemetry"],
   },
   {
     label: "Security & Networking",
-    tools: ["AWS IAM", "Vault (HashiCorp)", "NGINX", "Cloudflare", "AWS WAF"],
+    tools: ["AWS IAM", "Vault (HashiCorp)", "NGINX", "Cloudflare"],
   },
   {
     label: "Databases & Storage",
-    tools: ["PostgreSQL", "Redis", "DynamoDB", "AWS RDS", "S3 / Glacier"],
+    tools: ["PostgreSQL", "Redis"],
   },
 ];
 ---
 <section id="skills">
   <div class="container">
     <p class="section-label">skills & tools</p>
-    <h2>The stack I work with</h2>
-    <p class="skills-sub">Tools I reach for daily — and a few I've used enough to know when <em>not</em> to reach for them.</p>
+    <h2>Tools of the Trade</h2>
+    <p class="skills-sub">The technologies behind the systems I build.</p>
     <div class="skills-grid">
       {groups.map(group => (
         <div class="skill-group">
@@ -50,6 +50,9 @@ const groups = [
 </section>
 
 <style>
+  #skills {
+    padding-top: 2rem;
+  }
   h2 { margin-bottom: 0.6rem; }
   .skills-sub {
     color: var(--text-secondary);
