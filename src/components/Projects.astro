@@ -1,6 +1,14 @@
 ---
 const projects = [
   {
+    title: "EnergyIQ",
+    description: "An AI-powered energy monitoring dashboard that helps Nigerian and African SMEs, solar installers, and EPC contractors track, analyze, and optimize power consumption from their existing solar/inverter setups.",
+    impact: "Energy",
+    stack: ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis"],
+    github: null,
+    demo: "https://staging.energy-iq.hng14.com",
+  },
+  {
     title: "Forge",
     description: "A self-hosted CI/CD platform and artifact registry that provides a secure, reproducible software delivery pipeline. By combining kernel-level build isolation, deterministic dependency resolution, and semantic versioned artifacts, it protects the software supply chain against compromised build environments, dependency tampering, and package spoofing while ensuring reproducible builds.",
     impact: "Integrity",
@@ -22,14 +30,6 @@ const projects = [
     impact: "Automation",
     stack: ["Python", "Docker", "Nginx", "Open Policy Agent", "Prometheus", "Rego"],
     github: "https://github.com/nehemiah-dev/swiftdeploy",
-    demo: null,
-  },
-  {
-    title: "RBAC System",
-    description: "An enterprise-grade identity platform providing secure authentication, role-based authorization, and asynchronous background processing. It combines rotating short-lived tokens, automated brute-force protection, and zero-disk memory streaming to harden application security, while moving email delivery and media processing off the HTTP request path to reduce latency and improve system throughput.",
-    impact: "Security",
-    stack: ["Go", "Gin", "Postgres", "redis"],
-    github: "https://github.com/Steve-s-Circle-on-System-Design/golang-rbac-system",
     demo: null,
   },
 ];
