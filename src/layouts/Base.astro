@@ -23,7 +23,7 @@ const {
 
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Nehemiah</a>
+      <a href="/" class="nav-logo"><img src="/favicon.svg" alt="Nehemiah" /></a>
       <ul class="nav-links">
         <li><a href="#about">me</a></li>
         <li class="hide-mobile"><a href="#skills">skills</a></li>
@@ -80,7 +80,11 @@ const {
     color: var(--text-primary);
     flex-shrink: 0;
   }
-  .nav-logo span { color: var(--accent); }
+  .nav-logo img {
+    display: block;
+    width: 28px;
+    height: 28px;
+  }
 
   .nav-links {
     display: flex;
